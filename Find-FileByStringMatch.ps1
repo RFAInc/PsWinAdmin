@@ -16,6 +16,7 @@
         $itemList = Get-ChildItem $directory -Recurse
 
         foreach($item in $itemList){
+            Write-Progress -Activity "Checking $($item.FullName)"
             if(Test-Path $item.FullName -PathType Leaf){
                 #Write-Host "Matched File for $($item.FullName), testing"
                 if ($item.FullName -match $matchString){
